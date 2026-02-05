@@ -37,10 +37,10 @@ const getQueue = async (
     .split('\n')
     .filter((line) => !!line)
     .map((line) => line.split(/\s{2,}/))
-    .filter((row) => row.length === 4)
+    .filter((row) => row.length === 3)
     .map((row) => {
       const [requestId, user, size, date] = row
-      const pattern = /(.*)-(\d+)$/
+      const pattern = /(.*-*.*)-(\d+)/
       const match = pattern.exec(requestId)
       const [_all, printerName, id] = match ?? []
       return {
